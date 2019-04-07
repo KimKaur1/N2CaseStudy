@@ -13,8 +13,10 @@ On contact itself while selecting product, the country of product and contact sh
 
 We are only showing data on case layout and need not to allow any edits.
 
+I had activated multi-currency for my organization and also my currency locale was Germany(Euro)
+
 ******************* Other approach/suggestions for Case study 2 : ********************** 
 
-We could have created another object country and then created a junction between country object and product object
+We could have created another object country and then created a junction between country object and product object, but it depends if we need country as separate object.
 
 We can also enable inline editing for product data on case layout itself to facilitate the easy updations during interaction itself.
