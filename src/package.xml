@@ -52,14 +52,15 @@
     </types>
     
     <types>
+    <members>Contact-Contact Layout</members>
     <members>KM_Product__c-Product Layout</members>
     <name>Layout</name>
     </types>
     
     <types> 
-<members>*</members> 
-<name>Translations</name> 
-</types> 
+	<members>*</members> 
+	<name>Translations</name> 
+	</types> 
 
     <version>36.0</version>
 </Package>
