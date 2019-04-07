@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>scheduleBatchClass</members>
+        <members>testSendSurvey</members>
+        <members>sendSurveyBatch</members>
+        <members>testScheduleBatchClass</members>
+        <name>ApexClass</name>
+    </types>   
+    <types>
+    <members>KM_showProductInformation</members>
+    <name>AuraDefinitionBundle</name>
+    </types> 
+    
+    <types>
+    <name>unfiled$public/Send_out_survey</name>
+    <name>EmailTemplate</name>
+    </types>
+    
+    <types>
+    <members>Survey</members>
+    <members>Please_Fill_Survey</members>
+    <name>CustomLabel</name>
+    </types>
+    
+    <types>
+    <members>Contact.Languages__c</members>
+    <members>Contact.survey_date__c</members>
+    <members>Contact.Home_Country__c</members>
+    <members>Contact.Product__c</members>
+    <name>CustomField</name>
+    </types>
+    
+    <types>
+    <members>KM_Product__c</members>
+    <name>CustomObject</name>
+    </types>
+    
+    <types>
+    <members>KM_Product__c</members>
+    <name>CustomTab</name>
+    </types>
+    
+    <types>
+    <members>admin</members>
+    <name>Profile</name>
+    </types>
+    
+    <types>
+    <members>Custom_Case_Layout</members>
+    <name>FlexiPage</name>
+    </types>
+    
+    <types>
+    <members>KM_Product__c-Product Layout</members>
+    <name>Layout</name>
+    </types>
+    
+    <types> 
+<members>*</members> 
+<name>Translations</name> 
+</types> 
+
+    <version>36.0</version>
+</Package>

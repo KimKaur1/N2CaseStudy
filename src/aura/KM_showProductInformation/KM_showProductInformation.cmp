@@ -1,0 +1,80 @@
+<!-- component being used on Custom Case Layout to show related Product information 
+     CreatedBy : N26 case study team 
+     CreatedOn : 4/6/2019 -->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:hassObjectName,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader" access="global">
+    <aura:attribute name="sObjectName" type="String"/>
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="SobjectRecord" type="Object"/>
+    <aura:attribute name="finalCaseRecord" type="Object"/>
+    <aura:attribute name="draftValues" type="Object" /> 
+    <aura:attribute name="noProductError" type="boolean" default="false" /> 
+    <aura:attribute name="percentValue" type="String"  /> 
+    
+    <!-- lightning data service -->      
+    <force:recordData aura:id="forceRecordCmp" 
+                      recordId="{!v.recordId}"
+                      fields="ContactId,Contact.Product__c,Contact.Product__r.Name,Contact.Product__r.KM_Card_Replacement_Cost__c,Contact.Product__r.KM_Cost_per_Calendar_Month__c,Contact.Product__r.KM_ATM_fee_in_other__c,Contact.Product__r.KM_Country__c,Contact.Home_Country__c"                          
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.SobjectRecord}"
+                      recordUpdated="{!c.doInit}"
+                      />
+    <!-- lightning data service ends -->
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+    <div style = "background-color:white ">
+        
+        <!-- setting banner -->
+        <lightning:card >
+            <lightning:layout >
+                <lightning:layoutItem flexibility="shrink" padding="around-small">
+                    <lightning:icon iconName="custom:custom13" size="small" alternativeText="Product"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="shrink" padding="around-small">
+                    <div class="slds-col slds-has-flexi-truncate">
+                        <p class="slds-text-heading--label"><B>PRODUCT DETAILS</B></p>
+                    </div> 
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:card>
+        <!-- banner ends -->
+        
+        <!-- checking if there are PRoducts  available, if yes, showing fields on screen -->
+        <aura:if isTrue="{!!v.noProductError}">
+            <lightning:layout multipleRows="true" class = "slds-m-around_small">
+                <lightning:layoutItem size = "6" class="slds-p-around_small ">
+                    <span>Product Name</span><br></br><span><a onclick="{!c.navigateToSObject}" style="width:100%;" text-decoration="underline">{!v.finalCaseRecord.Contact.Product__r.Name}</a></span>
+                </lightning:layoutItem>
+                <lightning:layoutItem size = "6" class="slds-p-around_small">
+                    <span>Country</span><br></br><span> {!v.finalCaseRecord.Contact.Product__r.KM_Country__c}</span>                
+                </lightning:layoutItem>        
+            </lightning:layout>
+            
+            <lightning:layout multipleRows="true" class = "slds-m-around_small">
+                <lightning:layoutItem size = "6" class="slds-p-around_small">
+                    <span>Cost per Calendar Month</span><br></br><span><ui:outputCurrency value="{!v.finalCaseRecord.Contact.Product__r.KM_Cost_per_Calendar_Month__c}" /></span>                
+                </lightning:layoutItem>
+                <lightning:layoutItem size = "6" class="slds-p-around_small">
+                    <span>ATM Fee in other currencies</span><br></br><span> <lightning:formattedNumber style="percent" value="{!v.percentValue}" /></span>
+                </lightning:layoutItem>        
+            </lightning:layout>
+            
+            <lightning:layout multipleRows="true" class = "slds-m-around_small">
+                <lightning:layoutItem size = "6" class="slds-p-around_small">
+                    <span>Card Replacement Cost</span><br></br><span><ui:outputCurrency value="{!v.finalCaseRecord.Contact.Product__r.KM_Card_Replacement_Cost__c}" /></span>
+                </lightning:layoutItem>
+            </lightning:layout>
+            <!-- else showing a label -->
+            <aura:set attribute="else">
+                <lightning:card>
+                    <lightning:layout class="slds-paround_large">
+                        <ui:message  severity="Error" closable="false">
+                            No products available.
+                        </ui:message>
+                    </lightning:layout>
+                </lightning:card>
+            </aura:set>
+            
+        </aura:if>
+    </div>
+</aura:component>

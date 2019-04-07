@@ -1,0 +1,8 @@
+<apex:component controller="sendSurveyController" access="global">
+    
+                    <div style="text-align:right;vertical-align:top;">
+                <!--    <tr>"Hey&nbsp;{!(relatedTo.FirstName)}{!$Label.Please_Fill_Survey}&nbsp;<a href="https://n26.com/survey/{!(relatedTo.id)}">https://n26.com/survey/{!(relatedTo.id)} "</a></tr> -->
+                    </div>
+                
+                
+</apex:component>
