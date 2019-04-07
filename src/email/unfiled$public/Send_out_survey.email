@@ -1,0 +1,17 @@
+<messaging:emailTemplate subject="{!$Label.Survey}" recipientType="Contact" relatedToType="Contact" language="{!CASE(recipient.Languages__c,'German','DE','English','EN','EN')}">
+        
+        <messaging:htmlEmailBody >
+                <html>
+            <body>
+                
+                <font face="arial" size="2">
+                <br/>
+                    <div style="text-align:right;vertical-align:top;"></div>
+                    <tr>"Hey&nbsp;{!recipient.FirstName}{!$Label.Please_Fill_Survey}&nbsp;<a href="https://n26.com/survey/{!(recipient.id)}">https://n26.com/survey/{!(recipient.id)} "</a></tr>
+                    
+                
+                </font>
+                </body>
+        </html>
+    </messaging:htmlEmailBody> 
+</messaging:emailTemplate>

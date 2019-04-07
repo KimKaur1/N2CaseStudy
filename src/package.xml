@@ -13,7 +13,8 @@
     </types> 
     
     <types>
-    <name>unfiled$public/Send_out_survey</name>
+    <name>unfiled$public</name>
+    <members>unfiled$public/Send_out_survey</members>
     <name>EmailTemplate</name>
     </types>
     
@@ -62,5 +63,5 @@
 	<name>Translations</name> 
 	</types> 
 
-    <version>36.0</version>
+    <version>45.0</version>
 </Package>
